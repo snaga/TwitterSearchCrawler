@@ -2,6 +2,7 @@
 
 import json
 import os
+import time
 
 from twitter_search_crawler import TwitterSearchCrawler
 from local_to_dlk import local_to_dlk
@@ -18,6 +19,9 @@ S3_AWS_ACCESS_KEY_ID = os.environ['S3_AWS_ACCESS_KEY_ID']
 S3_AWS_SECRET_ACCESS_KEY = os.environ['S3_AWS_SECRET_ACCESS_KEY']
 BUCKET_NAME = os.environ['BUCKET_NAME']
 OBJECT_KEY_PREFIX = os.environ['OBJECT_KEY_PREFIX']
+
+# Now - 59-min in JST.
+YYYYMMDDHH = time.strftime('%Y%m%d%H', time.gmtime(time.time() - 59*60 + 9*60*60))
 
 
 def lambda_handler(event=None, context=None):
