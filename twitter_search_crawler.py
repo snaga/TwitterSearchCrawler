@@ -104,7 +104,7 @@ class TwitterSearchCrawler:
                 time.strftime('%Y-%m-%d_%H:%M:%S_JST', until_t))
 
     def file_prefix(self):
-        session_ts = time.strftime('%Y%m%d_%H%M%S', time.localtime())
+        session_ts = time.strftime('%Y%m%d_%H%M%S', time.gmtime(time.time() + 9*60*60))
         session_id = str(uuid.uuid4()).split('-')[0]
         return '{}_{}'.format(session_ts, session_id)
     
